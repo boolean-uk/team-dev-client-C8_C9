@@ -1,50 +1,45 @@
 import { useState, useEffect } from "react";
-import useAuth from "../hooks/useAuth";
+import ProfileCircle from "./profileCircle";
+import { get } from "../service/apiClient";
 
-function nameList() {
-  //const { users, setUsers } = props();
-  const { token } = useAuth();
+function NameList() {
+  const [users, setUsers] = useState([]);
+  console.log(users[0]);
 
-  const options = {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + token,
-    },
-  };
-  fetch(`http://localhost:4000/users`, options)
-    .then((res) => res.json())
-    .then((data) => console.log("data", data));
+  useEffect(() => {
+    const getUserInfo = async () => {
+      const res = await get(`users`);
+      setUsers([...users, res.data.users]);
+    };
+    getUserInfo();
+  }, []);
+  let initials = "";
+  return (
+    <div>
+      {users[0] &&
+        users[0].map((user) => {
+          {
+            const name = `${user.firstName} ${user.lastName}`;
+            initials = name
+              .match(/(\b\S)?/g)
+              .join("")
+              .match(/(^\S|\S$)?/g)
+              .join("")
+              .toUpperCase();
+          }
+          return (
+            <section className="create-post-user-details">
+              <div className="profile-icon">
+                <p>{initials}</p>
+              </div>
+              <div className="post-user-name">
+                <p>{`${user.firstName} ${user.lastName}`}</p>
+              </div>
+            </section>
+          );
+        })}
+    </div>
+  );
 }
 
-const persons = [
-  {
-    firstName: "Bruce",
-    lastName: "React",
-  },
-  {
-    firstName: "Mary",
-    lastName: "React",
-  },
-  {
-    firstName: "Luke",
-    lastName: "Flegg",
-  },
-  {
-    firstName: "Paul",
-    lastName: "Martin",
-  },
-  {
-    firstName: "georgie",
-    lastName: "Martin",
-  },
-];
-const personList = persons.map((person) => {
-  <p>
-    {person.firstName}
-    {person.lastName}
-  </p>;
-  return <div>{personList}</div>;
-});
-
-export default nameList;
+export default NameList;
