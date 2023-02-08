@@ -12,7 +12,7 @@ function NameList() {
       setUsers([...users, res.data.users]);
     };
     getUserInfo();
-  }, []);
+  }, [users]);
   let initials = "";
   return (
     <div>
@@ -35,6 +35,11 @@ function NameList() {
               <div className="post-user-name">
                 <p>{`${user.firstName} ${user.lastName}`}</p>
               </div>
+              <span>
+                <div className="edit-icon">
+                  <p>...</p>
+                </div>
+              </span>
             </section>
           );
         })}
