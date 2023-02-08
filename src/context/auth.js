@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const storedToken = localStorage.getItem('token')
 
-        if (storedToken) {
+        if (storedToken && !token) {
             setToken(storedToken)
             const { userId } = jwt_decode(storedToken)
             const getUserInfo = async () => {
@@ -25,12 +25,12 @@ const AuthProvider = ({ children }) => {
                 if (!res.data.user.firstName || !res.data.user.lastName) {
                     navigate('/welcome')
                 } else {
-                    navigate(location.state?.from?.pathname || "/")
+                    navigate(location.pathname || "/")
                 }
             }
             getUserInfo()
         }
-    }, [location.state?.from?.pathname, navigate])
+    }, [location.pathname])
 
 	const handleLogin = async (email, password) => {
 		const res = await login(email, password)
@@ -39,8 +39,8 @@ const AuthProvider = ({ children }) => {
         }
 
         localStorage.setItem('token', res.data.token)
-		setToken(res.token)
-		navigate(location.state?.from?.pathname || "/")
+		setToken(res.data.token)
+		navigate("/")
 	};
 
 	const handleLogout = () => {
@@ -50,24 +50,26 @@ const AuthProvider = ({ children }) => {
 
     const handleRegister = async (email, password) => {
         const res = await register(email, password)
-		
-		if(res.status === 'fail') {
-			return res
+		const status = res.status
+
+		if(status === 'fail') {
+			return status
 		} 
-		else if (res.status === 'success') {
+		else if (status === 'success') {
 			const res = await login(email, password)
 			setToken(res.data.token)
 			navigate("/verification")
+			return status
 		}
     }
 
     const handleCreateProfile = async (firstName, lastName, githubUrl, bio) => {
         const { userId } = jwt_decode(token)
+		localStorage.setItem('token', token)
 
         await createProfile(userId, firstName, lastName, githubUrl, bio)
-
-        localStorage.setItem('token', token)
-        navigate('/')
+		
+        navigate('/') 
     }
 
 	const value = {
