@@ -13,20 +13,6 @@ function NameList(inputText) {
   }, []);
   let initials = "";
 
-  // useEffect(() => {
-  //   const searchedUser =
-  //     users[0] &&
-  //     users[0].filter(function (name) {
-  //       return name.match(inputText);
-  //     });
-  //   const originalUsers = users;
-  //   if (inputText === undefined) {
-  //     setUsers(originalUsers);
-  //   } else {
-  //     setUsers(searchedUser);
-  //   }
-  // }, [inputText, users]);
-
   return (
     <div>
       {users[0] &&
