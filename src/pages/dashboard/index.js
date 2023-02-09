@@ -11,7 +11,8 @@ import useAuth from "../../hooks/useAuth";
 import jwt_decode from "jwt-decode";
 import { useEffect } from "react";
 import { get } from "../../service/apiClient";
-
+import NameList from "../../components/nameList";
+  
 const Dashboard = () => {
   const { token } = useAuth();
   const { userId } = jwt_decode(token);
@@ -94,6 +95,7 @@ const Dashboard = () => {
         <Card>
           <h4>My Cohort</h4>
         </Card>
+        <NameList />
       </aside>
     </>
   );

@@ -35,11 +35,10 @@ function NameList() {
               <div className="post-user-name">
                 <p>{`${user.firstName} ${user.lastName}`}</p>
               </div>
-              <span>
-                <div className="edit-icon">
-                  <p>...</p>
-                </div>
-              </span>
+
+              <div className="edit-icon">
+                <p>...</p>
+              </div>
             </section>
           );
         })}
