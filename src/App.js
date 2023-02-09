@@ -8,6 +8,8 @@ import Verification from "./pages/verification";
 import { AuthProvider, ProtectedRoute } from "./context/auth";
 import { ModalProvider } from "./context/modal";
 import Welcome from "./pages/welcome";
+import ViewProfile from "./pages/viewProfile";
+import Search from "./pages/Search";
 
 const App = () => {
   return (
@@ -19,6 +21,15 @@ const App = () => {
             <Route path="register" element={<Register />} />
             <Route path="loading" element={<Loading />} />
             <Route path="verification" element={<Verification />} />
+
+            <Route
+              path={`profile/:id`}
+              element={
+                <ProtectedRoute>
+                  <ViewProfile />
+                </ProtectedRoute>
+              }
+            />
 
             <Route
               index
@@ -33,6 +44,14 @@ const App = () => {
               element={
                 <ProtectedRoute disabledNav={true}>
                   <Welcome />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="search"
+              element={
+                <ProtectedRoute>
+                  <Search />
                 </ProtectedRoute>
               }
             />
