@@ -7,18 +7,18 @@ function NameList(inputText) {
   useEffect(() => {
     const getUserInfo = async () => {
       const res = await get(`users`);
-      setUsers([...users, res.data.users]);
+      setUsers(res.data.users);
     };
     getUserInfo();
   }, []);
-  let initials = "";
 
   return (
     <div>
-      {users[0] &&
-        users[0].map((user) => {
+      {users &&
+        users.map((user) => {
           {
             const name = `${user.firstName} ${user.lastName}`;
+            let initials = "";
             initials = name
               .match(/(\b\S)?/g)
               .join("")
@@ -31,7 +31,7 @@ function NameList(inputText) {
           return (
             <section className="create-post-user-details" id="HI">
               <div className="profile-icon">
-                <p>{initials}</p>
+                <p>{name}</p>
               </div>
               <div className="post-user-name">
                 <p id="userName">{`${user.firstName} ${user.lastName}`}</p>
