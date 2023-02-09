@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-import ProfileCircle from "./profileCircle";
-import { get } from "../service/apiClient";
-
-function NameList() {
+import { get } from "../../service/apiClient";
+import "./nameList.css";
+function NameList(inputText) {
   const [users, setUsers] = useState([]);
-  console.log(users[0]);
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -12,8 +10,23 @@ function NameList() {
       setUsers([...users, res.data.users]);
     };
     getUserInfo();
-  }, [users]);
+  }, []);
   let initials = "";
+
+  // useEffect(() => {
+  //   const searchedUser =
+  //     users[0] &&
+  //     users[0].filter(function (name) {
+  //       return name.match(inputText);
+  //     });
+  //   const originalUsers = users;
+  //   if (inputText === undefined) {
+  //     setUsers(originalUsers);
+  //   } else {
+  //     setUsers(searchedUser);
+  //   }
+  // }, [inputText, users]);
+
   return (
     <div>
       {users[0] &&
@@ -26,14 +39,16 @@ function NameList() {
               .match(/(^\S|\S$)?/g)
               .join("")
               .toUpperCase();
+
+            console.log(users);
           }
           return (
-            <section className="create-post-user-details">
+            <section className="create-post-user-details" id="HI">
               <div className="profile-icon">
                 <p>{initials}</p>
               </div>
               <div className="post-user-name">
-                <p>{`${user.firstName} ${user.lastName}`}</p>
+                <p id="userName">{`${user.firstName} ${user.lastName}`}</p>
               </div>
 
               <div className="edit-icon">
