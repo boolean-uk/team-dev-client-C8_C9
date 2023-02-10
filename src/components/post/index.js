@@ -1,24 +1,35 @@
 import LikeIcon from "../../assets/icons/likeIcon"
 import CommentIcon from "../../assets/icons/commentIcon"
 import useModal from "../../hooks/useModal"
-import { useState, useEffect } from "react"
+import { useState, useRef } from "react"
 import Card from "../card"
 import Comment from "../comment"
 import EditPostModal from "../editPostModal"
+import DeletePostModal from "../deletePostModal"
 import ProfileCircle from "../profileCircle"
 import "./style.css"
 
 const Post = ({ name, date, content, comments = [], id, likes = 0 }) => {
     const { openModal, setModal } = useModal()
     const [postContent, setContent] = useState(content)
+    const [isMenuVisible, setIsMenuVisible] = useState(false)
+    const menuRef = useRef(null)
 
     const userInitials = name.match(/\b(\w)/g)
 
     const [isLiked, setIsLiked] = useState(false)
 
-    const showModal = () => {
+    const showEditModal = () => {
         setModal('Edit post', <EditPostModal content={content} id={id} setContent={setContent}/>)
         openModal()
+    }
+    const showDeleteModal = () => {
+        setModal('Edit post', <DeletePostModal content={content} id={id} setContent={setContent}/>)
+        openModal()
+    }
+
+    const showMenu = () => {
+        setIsMenuVisible(true);
     }
 
     return (
@@ -33,8 +44,22 @@ const Post = ({ name, date, content, comments = [], id, likes = 0 }) => {
                     </div>
 
                     <div className="edit-icon">
-                        <p onClick={showModal}>...</p>
+                        <p onClick={showMenu}>...</p>
                     </div>
+                    {isMenuVisible &&
+                        <div>
+                            <Card>
+                                <section>
+                                    <ul>
+                                        <li><button onClick={showEditModal}>Edit</button></li>
+                                        <li><button onClick={showDeleteModal}>Delete</button></li>
+                                    </ul>
+                                </section>
+                            </Card>
+                        </div>
+
+
+                    }
                 </section>
 
                 <section className="post-content">
