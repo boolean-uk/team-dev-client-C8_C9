@@ -7,6 +7,7 @@ import Comment from "../comment"
 import EditPostModal from "../editPostModal"
 import DeletePostModal from "../deletePostModal"
 import ProfileCircle from "../profileCircle"
+import useOnOutsideClick from "../../hooks/useOnOutsideClick"
 import "./style.css"
 
 const Post = ({ name, date, content, comments = [], id, likes = 0 }) => {
@@ -18,6 +19,8 @@ const Post = ({ name, date, content, comments = [], id, likes = 0 }) => {
     const userInitials = name.match(/\b(\w)/g)
 
     const [isLiked, setIsLiked] = useState(false)
+
+    useOnOutsideClick(menuRef,()=>setIsMenuVisible(false))
 
     const showEditModal = () => {
         setModal('Edit post', <EditPostModal content={content} id={id} setContent={setContent}/>)
@@ -47,7 +50,7 @@ const Post = ({ name, date, content, comments = [], id, likes = 0 }) => {
                         <p onClick={showMenu}>...</p>
                     </div>
                     {isMenuVisible &&
-                        <div>
+                        <div className="three-dots-menu" ref={menuRef}>
                             <Card>
                                 <section>
                                     <ul>
