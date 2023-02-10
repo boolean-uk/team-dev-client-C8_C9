@@ -21,6 +21,10 @@ async function updatePost(postID, content) {
     return await patch(`posts/${postID}`, {content}, true)
 }
 
+async function deletePost(postID) {
+    return await deleteData(`posts/${postID}`, true)
+}
+
 async function post(endpoint, data, auth = true) {
     return await request('POST', endpoint, data, auth)
 }
@@ -31,6 +35,10 @@ async function patch(endpoint, data, auth = true) {
 
 async function get(endpoint, auth = true) {
     return await request('GET', endpoint, null, auth)
+}
+
+async function deleteData(endpoint, auth = true){
+    return await request('DELETE', endpoint, null, auth)
 }
 
 async function request(method, endpoint, data, auth = true) {
@@ -58,6 +66,7 @@ export {
     login,
     getPosts,
     updatePost,
+    deletePost,
     register,
     createProfile,
     get,
