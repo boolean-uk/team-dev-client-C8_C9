@@ -2,15 +2,28 @@ import { useState } from "react";
 import ProfileCircle from "../../components/profileCircle";
 import CascadingMenu from "../cascadingMenu"
 import './style.css'
+import useModal from "../../hooks/useModal";
+
+import CreatePostModal from "../createPostModal";
+
+
 
 const PersonCard = ({ person, isTeacher }) => {
-
+    const { openModal, setModal } = useModal();
     const [isMenuVisible, setIsMenuVisible] = useState(false)
     const name = `${person.firstName} ${person.lastName}`
     const userInitials = name.match(/\b(\w)/g)
 
     const handleClick = () => {
         setIsMenuVisible(true)
+    }
+    const addnote = () =>{
+        
+        setModal("Add a note", <CreatePostModal user={person} />); // CreatePostModal is just a standard React component, this is a placeholder for the time being.
+
+        // Open the modal!
+        openModal();
+
     }
 
     return (
@@ -29,8 +42,9 @@ const PersonCard = ({ person, isTeacher }) => {
                 </button>
 
                 {isTeacher && 
-                    <button className="addNote">
+                    <button className="addNote" onClick={addnote}>
                         <p className="text-blue1"> Add note</p>
+                         
                     </button>
                 }
 
