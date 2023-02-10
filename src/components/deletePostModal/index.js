@@ -4,17 +4,17 @@ import "./style.css";
 import Button from "../button";
 import { deletePost } from "../../service/apiClient";
 
-const DeletePostModal = ({id}) => {
+const DeletePostModal = ({id, userFirstName, userLastName}) => {
     const { closeModal } = useModal()
     const [message, setMessage] = useState(null)
     const [isError, setIsError ] = useState(false)
 
     async function onConfirm ()
     {
-        const updateResult = await deletePost(id)
-        if(updateResult.status === "fail"){
+        const deleteResult = await deletePost(id)
+        if(deleteResult.status === "fail"){
             setIsError(true)
-            setMessage('Error : ' + updateResult.message)
+            setMessage('Error : ' + deleteResult.message)
         }
         else{
             setIsError(false)
@@ -27,11 +27,23 @@ const DeletePostModal = ({id}) => {
         }, 2000)
     }
 
+    const name = `${userFirstName} ${userLastName}`;
+    const initials = name
+      .match(/(\b\S)?/g)
+      .join("")
+      .match(/(^\S|\S$)?/g)
+      .join("")
+      .toUpperCase();
+
     return (
         <>
             <section className="create-post-user-details">
-                <div className="profile-icon"><p>AJ</p></div>
-                <div className="post-user-name"><p>Alex J</p></div>
+                <div className="profile-icon">
+                    <p>{initials}</p>
+                </div>
+                <div className="post-user-name">
+                    <p>{name}</p>
+                </div>
             </section>
 
             <section>
