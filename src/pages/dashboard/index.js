@@ -11,7 +11,7 @@ import useAuth from "../../hooks/useAuth";
 import jwt_decode from "jwt-decode";
 import { useEffect } from "react";
 import { get } from "../../service/apiClient";
-import NameList from "../../components/namelist/nameList";
+import NameList from "../../components/namelist/NameList";
 
 const Dashboard = () => {
   const { token } = useAuth();
