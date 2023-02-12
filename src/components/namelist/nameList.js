@@ -3,62 +3,40 @@ import { get } from "../../service/apiClient";
 import "./nameList.css";
 import ProfileCircle from "../profileCircle";
 
-function NameList(inputText) {
+function NameList({ inputText }) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const getUserInfo = async () => {
       const res = await get(`users`);
-      setUsers(res.data.users);
+
+      if (inputText.length > 0) {
+        setUsers(
+          res.data.users.filter(
+            (user) =>
+              user.firstName.toLowerCase().includes(inputText.toLowerCase()) ||
+              user.lastName.toLowerCase().includes(inputText.toLowerCase())
+          )
+        );
+      } else {
+        setUsers(res.data.users);
+      }
     };
     getUserInfo();
-  }, []);
-
-  //    {
-  //     users.map((user) => {
-  //       const userInitials =
-  //         user.firstName.match(/\b(\w)/g) + user.lastName.match(/\b(\w)/g);
-
-  //       return (
-  //         <section className="create-post-user-details student-view">
-  //           <ProfileCircle initials={userInitials} />
-  //           <p>
-  //             {user.firstName}
-  //             {user.lastName}
-  //           </p>
-  //           <div className="edit-icon">
-  //             <p>...</p>
-  //           </div>
-  //         </section>
-  //       );
-  //     });
-  //   }
-  // }
-
-  //
+  }, [inputText]);
 
   return (
     <div>
       {users &&
         users.map((user) => {
-          {
-            const name = `${user.firstName} ${user.lastName}`;
-            const initials = name
-              .match(/(\b\S)?/g)
-              .join("")
-              .match(/(^\S|\S$)?/g)
-              .join("")
-              .toUpperCase();
-          }
-
           return (
             <section className="create-post-user-details student-view">
-              <div className="profile-icon">
-                <p>
-                  {user.firstName.slice(0, 1)}
-                  {user.lastName.slice(0, 1)}
-                </p>
-              </div>
+              <ProfileCircle
+                initials={`${user.firstName.slice(0, 1)}${user.lastName.slice(
+                  0,
+                  1
+                )}`}
+              />
               <div className="post-user-name">
                 <p id="userName">{`${user.firstName} ${user.lastName}`}</p>
               </div>
