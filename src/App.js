@@ -10,6 +10,7 @@ import { ModalProvider } from "./context/modal";
 import Welcome from "./pages/welcome";
 import ViewProfile from "./pages/viewProfile";
 import Search from "./pages/Search";
+import CohortsTeacherView from "./pages/CohortsTeacherView";
 
 const App = () => {
   return (
@@ -27,6 +28,15 @@ const App = () => {
               element={
                 <ProtectedRoute>
                   <ViewProfile />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path={`cohorts-teacher-view`}
+              element={
+                <ProtectedRoute>
+                  <CohortsTeacherView />
                 </ProtectedRoute>
               }
             />

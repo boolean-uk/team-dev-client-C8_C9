@@ -28,7 +28,7 @@ const Navigation = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">
+          <NavLink to="/cohorts-teacher-view">
             <CohortIcon />
             <p>Cohort</p>
           </NavLink>
