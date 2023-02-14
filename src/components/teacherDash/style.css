@@ -1,0 +1,33 @@
+.see-all-students-button {
+    line-height: 20px;
+    font-size: 15px;
+    width: 70px;
+    border-radius: 8px;
+    background: #F0F5FA;
+}
+
+.profile-icon-cohort {
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    padding-top: 26%;
+}
+
+.lists-teacher-view {
+    display: grid;
+    grid-template-columns: 56px 1fr 50px;
+    padding-bottom: 6px;
+    place-items: center;
+    column-gap: 10px;
+}
+
+.list-user-name{
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.horizontal-rule{
+    border-bottom: 2px solid #E6EBF5;
+    margin-bottom: 5px
+}
