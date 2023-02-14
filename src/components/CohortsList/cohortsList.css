@@ -1,0 +1,29 @@
+.cohort-list-container {
+  display: grid;
+  grid-template:
+    "title" 80px
+    "add-cohort-button" 100px
+    "cohort-list" 1fr/ 
+    300px;
+  gap: 5px;
+  height: 100vh;
+  
+}
+
+.add-cohort-button {
+  grid-area: add-cohort-button;
+  width: 180px;
+  height: 30px;
+  margin:10px
+}
+.cohort-list {
+  grid-area: cohort-list;
+  /* font-size: px; */
+  grid-template-rows:repeat(minmax(100px,200px))
+}
+
+.title {
+  grid-area: title;
+  margin:10px
+
+}

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { get } from "../../service/apiClient";
 import Button from "../button";
-
+import "../../components/CohortsList/cohortsList.css"
 function CohortsList() {
   // TEST DATA
   const initialValues = [
@@ -49,8 +49,12 @@ function CohortsList() {
   return (
     <>
       <div className="cohort-list-container">
-        <h2>Cohorts</h2>
-        <Button text="Add Cohort" classes="green width-full" />
+        
+          <h3 className="title">Cohorts</h3>
+        <div className="add-cohort-button">
+        <Button text="Add Cohort" classes="blue width-full" />
+        </div>
+        <div className = "cohort-list">
         <ul>
           {cohortsList.map((cohortItem, index) => (
             <li key={index}>
@@ -60,6 +64,7 @@ function CohortsList() {
             </li>
           ))}
         </ul>
+        </div>
       </div>
     </>
   );
