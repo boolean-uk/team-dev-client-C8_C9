@@ -11,7 +11,7 @@ function CohortsList() {
   ];
 
   // STATES
-  const [cohortsList, setCohortsList] = useState(initialValues);
+  const [cohortsList, setCohortsList] = useState([]);
 
   // GLOBAL VARIABLES
   const navigate = useNavigate();
@@ -21,15 +21,21 @@ function CohortsList() {
 
     const cohortData = async () => {
       const res = await get(`cohorts`);
-      console.log("SERVER RESPONSE: ", res.data.cohorts);
+      //   console.log("SERVER RESPONSE: ", res.data.cohorts);
       const cohorts = res.data.cohorts;
+
+      console.log("COHORTS: ", cohorts);
+      //   console.log("Cohort name: ", cohorts.cohort.cohortName);
 
       setCohortsList(cohorts);
 
       //   console.log("After setCohortsList", cohortsList);
     };
     cohortData();
-  }, [navigate]);
+    console.log("STATE inside ", cohortsList);
+  }, []);
+
+  console.log("STATE outside ", cohortsList);
 
   /* {props.store.map((storeItem, index) => (
     <StoreItem
@@ -45,7 +51,9 @@ function CohortsList() {
       <ul>
         {cohortsList.map((cohortItem, index) => (
           <li key={index}>
-            <p>{cohortItem.cohortName}</p>
+            <p>
+              {cohortItem.cohort.id}: {cohortItem.cohort.cohortName}
+            </p>
           </li>
         ))}
       </ul>
