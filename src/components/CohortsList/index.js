@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { get } from "../../service/apiClient";
+import Button from "../button";
 
 function CohortsList() {
   // TEST DATA
@@ -47,16 +48,19 @@ function CohortsList() {
 
   return (
     <>
-      <h2>Cohorts </h2>
-      <ul>
-        {cohortsList.map((cohortItem, index) => (
-          <li key={index}>
-            <p>
-              {cohortItem.cohort.id}: {cohortItem.cohort.cohortName}
-            </p>
-          </li>
-        ))}
-      </ul>
+      <div className="cohort-list-container">
+        <h2>Cohorts</h2>
+        <Button text="Add Cohort" classes="green width-full" />
+        <ul>
+          {cohortsList.map((cohortItem, index) => (
+            <li key={index}>
+              <p>
+                {cohortItem.cohort.id}: {cohortItem.cohort.cohortName}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }

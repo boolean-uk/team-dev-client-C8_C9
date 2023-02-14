@@ -9,8 +9,8 @@ import { AuthProvider, ProtectedRoute } from "./context/auth";
 import { ModalProvider } from "./context/modal";
 import Welcome from "./pages/welcome";
 import ViewProfile from "./pages/viewProfile";
-import Search from "./pages/Search";
 import CohortsTeacherView from "./pages/CohortsTeacherView";
+import Search from "./pages/Search";
 
 const App = () => {
   return (
