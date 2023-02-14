@@ -11,6 +11,7 @@ import Welcome from "./pages/welcome";
 import ViewProfile from "./pages/viewProfile";
 import Search from "./pages/Search";
 import EditProfile from "./pages/editProfile";
+import DeliveryLogs from "./pages/cohortsPage/devliveryLogs";
 
 const App = () => {
 
@@ -32,6 +33,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            <Route path="cohort/deliverylogs" element={<ProtectedRoute><DeliveryLogs /></ProtectedRoute>}/>
 
             <Route
               index

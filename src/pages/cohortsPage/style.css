@@ -1,0 +1,16 @@
+.header-section-search{
+    display: grid;
+    grid-column: span 2;
+    grid-template-columns: 1fr 300px;
+}
+.edit-container{
+    grid-column: span 2;
+}
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr
+}
+.info-bar{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
