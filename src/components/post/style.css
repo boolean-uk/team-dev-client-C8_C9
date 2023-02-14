@@ -62,9 +62,16 @@
 }
 
 .three-dots-menu {
-    text-align: right;
-    width: 100px;
-    height: 50px;
-    top : 5px;
-    right : 5px;
+    position:relative;
+    z-index: 1;
+    width: 150px;
+    height: 100px;
+}
+
+.three-dots-menu-open ul li{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px;
+    margin-top: 0px;
+    text-decoration: none;
 }

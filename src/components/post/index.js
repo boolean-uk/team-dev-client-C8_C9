@@ -52,7 +52,7 @@ const Post = ({ name, date, content, comments = [], id, likes = 0 }) => {
                     {isMenuVisible &&
                         <div className="three-dots-menu" ref={menuRef}>
                             <Card>
-                                <section>
+                                <section className="three-dots-menu-open">
                                     <ul>
                                         <li><button onClick={showEditModal}>Edit</button></li>
                                         <li><button onClick={showDeleteModal}>Delete</button></li>
