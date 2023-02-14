@@ -1,23 +1,9 @@
 
 
 .titleCard {
-    display: grid;
-    grid-template:
-     'profileCircle cohort-inf' 50px/
-        1fr     4fr;
-   
-}
-
-.profileCircle {
-    grid-area: profileCircle;
-    padding-top: 10px;
-
-}
-
-.cohort-inf {
-    grid-area: cohort-inf;
-    padding-top: 15px;
-   
+    padding: 1rem 0;
+    display: flex;
+    gap: 2rem;
 }
 
 h3{
