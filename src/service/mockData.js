@@ -60,6 +60,61 @@ const posts = [
     ],
   },
 ];
+const deliveryLogs = [
+  {
+    id: 0,
+    cohortId: 0,
+    date: "date",
+    title: "first log",
+    author: {
+      id: 0,
+      firstName: "string",
+      lastName: "string"
+    },
+    lines: [
+      {
+        id: 0,
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non quis aperiam veritatis laboriosam. Error sequi quam ducimus, qui laudantium eveniet animi, minima porro excepturi vero molestiae doloribus, odio labore vitae!"
+      }
+    ]
+  },
+  {
+    id: 1,
+    cohortId: 0,
+    date: "date",
+    title: "second log",
+    author: {
+      id: 0,
+      firstName: "string",
+      lastName: "string"
+    },
+    lines: [
+      {
+        id: 0,
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non quis aperiam veritatis laboriosam. Error sequi quam ducimus, qui laudantium eveniet animi, minima porro excepturi vero molestiae doloribus, odio labore vitae!"
+      }
+    ]
+  },
+  {
+    id: 2,
+    cohortId: 0,
+    date: "date",
+    title: "third log",
+    author: {
+      id: 0,
+      firstName: "string",
+      lastName: "string"
+    },
+    lines: [
+      {
+        id: 0,
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non quis aperiam veritatis laboriosam. Error sequi quam ducimus, qui laudantium eveniet animi, minima porro excepturi vero molestiae doloribus, odio labore vitae!"
+      }
+    ]
+  }
+
+]
+
 
 const emptyProfile = {
   id: "",
@@ -74,4 +129,4 @@ const emptyProfile = {
   phone: "",
 };
 
-export { user, posts, emptyProfile };
+export { user, posts, emptyProfile, deliveryLogs };

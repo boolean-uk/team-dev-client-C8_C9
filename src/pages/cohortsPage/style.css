@@ -14,3 +14,16 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
 }
+.cohortInfo-container{
+    display: grid;
+    grid-template-columns: 60px 1fr;
+}
+.delivery-log-item{
+    list-style: none;
+    border-top: lightgray solid 1px;
+}
+.deliverylogs-container{
+    display: grid;
+    gap: 10px;
+
+}
