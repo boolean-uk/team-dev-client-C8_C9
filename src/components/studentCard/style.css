@@ -1,0 +1,7 @@
+@import url(../../styles/_globals.css);
+
+.edit-icon {
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}

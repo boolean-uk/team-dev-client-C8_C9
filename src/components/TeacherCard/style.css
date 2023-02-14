@@ -1,0 +1,16 @@
+
+.teachers {
+    display: grid;
+    grid-template:
+     'profile-circle teacher-inf edit-icon' 50px/
+        70px     2fr 50px;
+    padding: 10px;
+}
+
+.title {
+    padding: 10px;
+}
+
+.edit-icon{
+    text-align: right;
+}
