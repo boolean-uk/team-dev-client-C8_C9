@@ -11,7 +11,7 @@ import Welcome from "./pages/welcome";
 import ViewProfile from "./pages/viewProfile";
 import Search from "./pages/Search";
 import EditProfile from "./pages/editProfile";
-import CohortStudent from "./components/cohortStudent";
+import Cohorts from "./pages/cohort";
 
 const App = () => {
 
@@ -59,10 +59,10 @@ const App = () => {
               }
             />
             <Route 
-              path="cohortsStudent"
+              path="cohorts"
               element={
                 <ProtectedRoute>
-                  <CohortStudent />
+                  <Cohorts />
                 </ProtectedRoute>
               }
             />

@@ -9,8 +9,8 @@ import TeacherCard from '../TeacherCard'
 const CohortStudent = () => {
 
     const [cohortInfo, setCohortInfo] = useState(null)
-    const [cohortStudents, setCohortStudents] = useState(null)
-    const [teachers, setTeachers] = useState(null)
+    const [cohortStudents, setCohortStudents] = useState([])
+    const [teachers, setTeachers] = useState([])
 
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const CohortStudent = () => {
                     <h3 className="text-blue border-bottom"> My cohort </h3>
                     {cohortInfo && <CohortTitleCard info={cohortInfo}/>}
                     <ul className='studentList'>
-                        {cohortStudents?.map((person, index) => {
+                        {cohortStudents.map((person, index) => {
                             return <StudentCard key={index} person={person} />
                         })}
                     </ul>
@@ -49,7 +49,7 @@ const CohortStudent = () => {
                 <Card >
                     <h3 className='border-bottom'>Teacher</h3>
                     <ul>
-                        {teachers?.map((person, index) => {
+                        {teachers.map((person, index) => {
                             return <TeacherCard key={index} person={person} />
                         })}
                     </ul>
