@@ -11,6 +11,7 @@ import Welcome from "./pages/welcome";
 import ViewProfile from "./pages/viewProfile";
 import Search from "./pages/Search";
 import EditProfile from "./pages/editProfile";
+import Cohorts from "./pages/cohort";
 
 const App = () => {
 
@@ -57,12 +58,19 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            <Route 
+              path="cohorts"
+              element={
+                <ProtectedRoute>
+                  <Cohorts />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </ModalProvider>
       </AuthProvider>
     </>
   );
-
 };
 
 export default App;

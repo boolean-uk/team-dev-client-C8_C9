@@ -1,0 +1,11 @@
+@import url(../../styles/_globals.css);
+
+.personCard {
+    padding: 0;
+}
+.personCard .edit-icon {
+    position: relative;
+}
+.cohortCCMenu{
+    transform: translate(-100%);
+}
