@@ -9,6 +9,7 @@ import { AuthProvider, ProtectedRoute } from "./context/auth";
 import { ModalProvider } from "./context/modal";
 import Welcome from "./pages/welcome";
 import ViewProfile from "./pages/viewProfile";
+import CohortsTeacherView from "./pages/CohortsTeacherView";
 import Search from "./pages/Search";
 import EditProfile from "./pages/editProfile";
 import Cohorts from "./pages/cohort";
@@ -30,6 +31,15 @@ const App = () => {
               element={
                 <ProtectedRoute>
                   <ViewProfile />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path={`cohorts-teacher-view`}
+              element={
+                <ProtectedRoute>
+                  <CohortsTeacherView />
                 </ProtectedRoute>
               }
             />
