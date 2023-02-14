@@ -49,7 +49,7 @@ async function request(method, endpoint, data, auth = true) {
         method
     }
 
-    if (method.toUpperCase() !== 'GET') {
+    if (method.toUpperCase() !== 'GET' && method.toUpperCase() !== 'DELETE') {
         opts.body = JSON.stringify(data)
     }
 
