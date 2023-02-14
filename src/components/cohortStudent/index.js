@@ -33,9 +33,9 @@ const CohortStudent = () => {
 
     return (
         <>
-            <main>
+            <main className='cohort'>
                 <Card >
-                    <h3 className="text-blue border-bottom"> My cohort </h3>
+                    <h3 className="text-blue border-bottom title"> My cohort </h3>
                     {cohortInfo && <CohortTitleCard info={cohortInfo}/>}
                     <ul className='studentList'>
                         {cohortStudents.map((person, index) => {
@@ -45,9 +45,9 @@ const CohortStudent = () => {
                 </Card>
             </main>
 
-            <aside>
+            <aside className='cohort'>
                 <Card >
-                    <h3 className='border-bottom'>Teacher</h3>
+                    <h3 className='border-bottom title'>Teacher</h3>
                     <ul>
                         {teachers.map((person, index) => {
                             return <TeacherCard key={index} person={person} />
@@ -56,8 +56,8 @@ const CohortStudent = () => {
                 </Card>
 
                 <Card>
+                    <h3 className='border-bottom title'>My Exercises</h3>
                     <div className='exercises'>
-                        <h3>My Exercises</h3>
                         <p className='text-blue1'> Modules: 2/7 completed </p>
                         <p className='text-blue1'> Units: 4/10 completed </p>
                         <p className='text-blue1'> Exercises: 34/58 completed </p>

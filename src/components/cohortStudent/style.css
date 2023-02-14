@@ -1,8 +1,14 @@
+.cohort .title{
+    padding-bottom: .5rem;
+}
 .studentList {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: .5rem;
 }
-.exercises p {
+.exercises {
     margin-top: .5rem;
+}
+.exercises p {
+    padding-top: .5rem;
 }
