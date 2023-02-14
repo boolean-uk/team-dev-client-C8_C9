@@ -18,3 +18,13 @@ textarea {
 .success {
     color: green;
 }
+
+.delete-confirmation
+{
+    text-align: center;
+}
+
+.create-post-actions
+{
+    text-align: center;
+}

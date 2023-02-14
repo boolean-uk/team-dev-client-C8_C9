@@ -4,7 +4,7 @@ import "./style.css";
 import Button from "../button";
 import { deletePost } from "../../service/apiClient";
 
-const DeletePostModal = ({id, userFirstName, userLastName}) => {
+const DeletePostModal = ({id}) => {
     const { closeModal } = useModal()
     const [message, setMessage] = useState(null)
     const [isError, setIsError ] = useState(false)
@@ -27,27 +27,11 @@ const DeletePostModal = ({id, userFirstName, userLastName}) => {
         }, 2000)
     }
 
-    const name = `${userFirstName} ${userLastName}`;
-    const initials = name
-      .match(/(\b\S)?/g)
-      .join("")
-      .match(/(^\S|\S$)?/g)
-      .join("")
-      .toUpperCase();
-
     return (
         <>
-            <section className="create-post-user-details">
-                <div className="profile-icon">
-                    <p>{initials}</p>
-                </div>
-                <div className="post-user-name">
-                    <p>{name}</p>
-                </div>
-            </section>
 
-            <section>
-                <p>Warning : You're about to delete this post. This action cannot be undone. Do you wish to continue?</p>
+            <section className="delete-confirmation">
+                <p>Are you sure you want to delete this post?</p>
             </section>
 
             <section className="create-post-actions">

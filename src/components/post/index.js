@@ -27,7 +27,7 @@ const Post = ({ name, date, content, comments = [], id, likes = 0 }) => {
         openModal()
     }
     const showDeleteModal = () => {
-        setModal('Edit post', <DeletePostModal content={content} id={id} setContent={setContent}/>)
+        setModal('Delete post', <DeletePostModal id={id}/>)
         openModal()
     }
 
