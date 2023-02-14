@@ -11,8 +11,11 @@ import Welcome from "./pages/welcome";
 import ViewProfile from "./pages/viewProfile";
 import CohortsTeacherView from "./pages/CohortsTeacherView";
 import Search from "./pages/Search";
+import EditProfile from "./pages/editProfile";
+import Cohorts from "./pages/cohort";
 
 const App = () => {
+
   return (
     <>
       <AuthProvider>
@@ -22,7 +25,7 @@ const App = () => {
             <Route path="register" element={<Register />} />
             <Route path="loading" element={<Loading />} />
             <Route path="verification" element={<Verification />} />
-
+            <Route path="/profile/:id/edit" element={<ProtectedRoute><EditProfile /></ProtectedRoute>}/>
             <Route
               path={`profile/:id`}
               element={
@@ -62,6 +65,14 @@ const App = () => {
               element={
                 <ProtectedRoute>
                   <Search />
+                </ProtectedRoute>
+              }
+            />
+            <Route 
+              path="cohorts"
+              element={
+                <ProtectedRoute>
+                  <Cohorts />
                 </ProtectedRoute>
               }
             />
