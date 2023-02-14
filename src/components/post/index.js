@@ -60,8 +60,6 @@ const Post = ({ name, date, content, comments = [], id, setIsRerender, likes = 0
                                 </section>
                             </Card>
                         </div>
-
-
                     }
                 </section>
 
@@ -71,7 +69,6 @@ const Post = ({ name, date, content, comments = [], id, setIsRerender, likes = 0
 
                 <section className={`post-interactions-container border-top 
                 `
-
                 }>
                     <div id="likeButton" className="post-interactions">
                         <div className="onHover">
@@ -85,7 +82,6 @@ const Post = ({ name, date, content, comments = [], id, setIsRerender, likes = 0
                         </div>
                         <div className="onHover">
                             <button id="commentButton" className="postButton"
-
                                 onClick={() => {
                                     //TODO: click event
                                 }}>
