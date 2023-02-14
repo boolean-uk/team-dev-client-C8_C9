@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { get } from "../../service/apiClient";
 import Button from "../button";
-import "../../components/CohortsList/cohortsList.css"
+import "../../components/CohortsList/cohortsList.css";
+// import CohortStudent from "../cohortStudent";
 function CohortsList() {
   // TEST DATA
   const initialValues = [
@@ -18,7 +19,7 @@ function CohortsList() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate(`/cohorts-teacher-view`);
+    // navigate(`/cohorts`);
 
     const cohortData = async () => {
       const res = await get(`cohorts`);
@@ -48,22 +49,26 @@ function CohortsList() {
 
   return (
     <>
-      <div className="cohort-list-container">
-        
+      <div className="main-container">
+        <div className="cohort-list-container">
           <h3 className="title">Cohorts</h3>
-        <div className="add-cohort-button">
-        <Button text="Add Cohort" classes="blue width-full" />
+          <div className="add-cohort-button">
+            <Button text="Add Cohort" classes="blue width-full" />
+          </div>
+          <div className="cohort-list">
+            <ul>
+              {cohortsList.map((cohortItem, index) => (
+                <li key={index}>
+                  <p>
+                    {cohortItem.cohort.id}: {cohortItem.cohort.cohortName}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className = "cohort-list">
-        <ul>
-          {cohortsList.map((cohortItem, index) => (
-            <li key={index}>
-              <p>
-                {cohortItem.cohort.id}: {cohortItem.cohort.cohortName}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <div className="student-list-container">
+          {/* <CohortStudent /> */}
         </div>
       </div>
     </>

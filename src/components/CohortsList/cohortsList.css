@@ -1,3 +1,11 @@
+.main-container {
+ display:grid;
+ grid-template:
+ "cohort-list-container" "student-list-container" 1fr/
+  300px                     1fr;
+  grid-gap:5px;
+}
+
 .cohort-list-container {
   display: grid;
   grid-template:
@@ -14,12 +22,13 @@
   grid-area: add-cohort-button;
   width: 180px;
   height: 30px;
-  margin:10px
+  margin:5px
 }
 .cohort-list {
   grid-area: cohort-list;
-  /* font-size: px; */
-  grid-template-rows:repeat(minmax(100px,200px))
+  font-size: 20px;
+  margin:5px;
+  grid-template-rows:repeat(autofit,minmax(100px,200px))
 }
 
 .title {
