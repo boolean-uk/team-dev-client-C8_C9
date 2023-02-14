@@ -4,11 +4,12 @@ import { getPosts } from "../../service/apiClient";
 
 const Posts = () => {
     const [posts, setPosts] = useState([])
+    const [isRerender, setIsRerender] = useState(false)
     let setTimeFormat = ''
     useEffect(() => {
         
         getPosts().then(setPosts)
-    }, [])
+    }, [isRerender])
 
     return (
         <>
@@ -21,6 +22,7 @@ const Posts = () => {
                         content={post.content}
                         comments={post.comments}
                         id={post.id}
+                        setIsRerender={setIsRerender}
                     />
             })}
         </>

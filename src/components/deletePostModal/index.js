@@ -4,7 +4,7 @@ import "./style.css";
 import Button from "../button";
 import { deletePost } from "../../service/apiClient";
 
-const DeletePostModal = ({id}) => {
+const DeletePostModal = ({id, setIsRerender}) => {
     const { closeModal } = useModal()
     const [message, setMessage] = useState(null)
     const [isError, setIsError ] = useState(false)
@@ -18,6 +18,7 @@ const DeletePostModal = ({id}) => {
         }
         else{
             setIsError(false)
+            setIsRerender(true);
             setMessage('Delete successfull! Closing modal in 2 seconds...')
         }
 

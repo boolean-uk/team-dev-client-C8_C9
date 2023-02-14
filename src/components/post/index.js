@@ -10,7 +10,7 @@ import ProfileCircle from "../profileCircle"
 import useOnOutsideClick from "../../hooks/useOnOutsideClick"
 import "./style.css"
 
-const Post = ({ name, date, content, comments = [], id, likes = 0 }) => {
+const Post = ({ name, date, content, comments = [], id, setIsRerender, likes = 0 }) => {
     const { openModal, setModal } = useModal()
     const [postContent, setContent] = useState(content)
     const [isMenuVisible, setIsMenuVisible] = useState(false)
@@ -27,7 +27,7 @@ const Post = ({ name, date, content, comments = [], id, likes = 0 }) => {
         openModal()
     }
     const showDeleteModal = () => {
-        setModal('Delete post', <DeletePostModal id={id}/>)
+        setModal('Delete post', <DeletePostModal id={id} setIsRerender={setIsRerender}/>)
         openModal()
     }
 
