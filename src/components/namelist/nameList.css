@@ -1,0 +1,10 @@
+.create-post-user-details, .student-view {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    column-gap: 20px;
+    padding:2px;
+
+}
+.post-user-name{
+    padding-top:15px
+}

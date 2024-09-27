@@ -12,6 +12,7 @@ import useAuth from "../../hooks/useAuth";
 import jwt_decode from "jwt-decode";
 import { useEffect } from "react";
 import { get } from "../../service/apiClient";
+import NameList from "../../components/namelist/nameList";
 
 const Dashboard = () => {
   const { token } = useAuth();
@@ -88,6 +89,7 @@ const Dashboard = () => {
               value={searchVal}
               name="Search"
               onChange={onChange}
+              placeholder="Search for people"
             />
           </form>
         </Card>
@@ -95,6 +97,7 @@ const Dashboard = () => {
         <Card>
           <h4>My Cohort</h4>
         </Card>
+        <NameList inputText={searchVal} />
       </aside>
     </>
   );

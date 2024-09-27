@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 56px auto;
     column-gap: 20px;
+    padding:2px
 }
 
 textarea {
